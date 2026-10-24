@@ -1,0 +1,60 @@
+body {
+    background-color: ghostwhite;
+}
+
+h1 {
+    color: green;
+    font-family: monospace;
+    font-size: 300%;
+}
+
+p {
+    color: magenta;
+    font-family: Franklin Gothic Medium;
+    font-size: 160%;
+}
+
+p {
+    border: 2px solid black;
+    padding: 30px;
+    margin: 50px;
+}
+
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:active{ 
+    color: yellow;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+/* Membuat text sekana menjadi seperti tombol */
+a:link,a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    outline: black solid 1px;
+}
+
+a:hover, a:active{
+    background-color: red;
+}
