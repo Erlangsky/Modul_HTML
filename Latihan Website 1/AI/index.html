@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Sistem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <h1>Program Membuat List Tugas</h1>
+    </header>
+
+    <!-- Navigasi Bar -->
+    <nav>
+        <a href="#index">Home</a>
+        <a href="#history">History</a>
+    </nav>
+
+    <div id="index"></div>
+    <!-- Menambahkan tugas baru -->
+    <form onsubmit="tambahkanTugas(event)">
+    <label for="nambah">Silahkan Tambahkan Tugas</label>
+    <input type="text" id="masukanTugas" name="masukan" placeholder="'Contoh: Beli susu'">
+    <button type="submit">tambahkan</button><br><br>
+
+    <label for="hapus">Silahkan Hapus Tugas</label>
+    <input type="text" id="hapusTugas" name="masukan" placeholder="'Contoh: Beli susu'">
+    <button type="submit">hapus</button><br><br>
+
+    <label for="lihat">Silahkan dilihat listnya --> </label>
+    <button type="button" onclick="lihatList()">lihat list</button>
+
+    </form>
+
+    </div>
+
+    <div id="history">
+        <ul id="listTugas">List Tugas
+            <li>Beli lauk</li>
+        </ul>
+        <br>
+        <table border="1" id="tabelTugas">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kegiatan</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <th>Beli lauk</th>
+                    <th><input type="radio">Selesai</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

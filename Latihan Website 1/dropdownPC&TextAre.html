@@ -1,0 +1,37 @@
+<html>
+<head>
+	<style>
+		select {
+			width: 200px;
+			padding: 6px;
+			border: 1px solid #888;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+			font-family: Verdana, sans-serif;
+			font-size: 13px;
+		}
+		option[disabled] {
+			color: #999;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<label for="fruits">Choose a fruit:</label>
+		<select id="fruits" name="fruits">
+			<option value="" disabled selected>Select a fruit</option>
+			<option value="apple">Apple</option>
+			<option value="banana">Banana</option>
+			<option value="cherry">Cherry</option>
+		</select>
+
+		<h3>Textarea Example</h3>
+		<p>Please enter your comments:</p>
+		<textarea name="userComments" rows="4" cols="50">
+		Enter your text here...
+		</textarea>
+		<br>    
+		<button type="submit">pencet</button>
+	</form>
+</body>
+</html>
