@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submitted Data</title>
+  <style>
+    /* Reset default margin and padding */
+    html, body {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .container {
+      padding: 20px;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background-color: #d9d7d7;
+      color: #302e2e;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .radio-group {
+    margin-bottom: 15px;
+    display: flex; /* Tambah flex supaya sejajar */
+    gap: 100px; /* Jarak antar pilihan */
+    align-items: baseline; /* Biar radio button sama text sejajar */
+        }
+
+    .radio-option {
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap; /* INI dia kuncinya! */
+    }
+
+    .radio-option input {
+      margin-right: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .radio-option label {
+    margin: 0;
+    font-weight: normal; /* Optional, biar lebih ringan */
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <div class="container position-relative">
+          <h1>TRAINING UNITED TRACTOR SCHOOL - BATCH VII</h1>
+          <a href="halaman awal.html">Beranda</a>
+          <a href="halaman2.html">Daftar Peserta</a>
+          <a href="P1_XXX_2.html">Daftar Materi</a>
+          <a href="P1_XXX_2.html">Kontak</a>
+        </div>
+      </nav>
+      <div class="container position-relative">
+        <h2>Submitted Data</h2>
+        <table id="dataTable">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Kelamin</th>
+                <th>Kota Asal</th>
+                <th>Asal Sekolah</th>
+                <th>Jurusan</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        </div>
+  <footer id="footer" class="footer dark-background">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <div class="footer-contact pt-3">
+          <p>Hak Cipta 2024 United Tractor</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<script>
+    // Ambil data dari localStorage
+    const formData = JSON.parse(localStorage.getItem('formData'));
+    
+    // Cek kalau data ada
+    if (formData) {
+      const tbody = document.getElementById('dataTabel');
+      const row = document.createElement('tr');
+    
+      row.innerHTML = `
+        <td>${formData.nama}</td>
+        <td>${formData.jenis_kelamin}</td>
+        <td>${formData.kota_asal}</td>
+        <td>${formData.asal_sekolah}</td>
+        <td>${formData.jurusan}</td>
+        <td>${formData.email}</td>
+      `;
+    
+      tbody.appendChild(row);
+    } else {
+      document.getElementById('dataTabel').innerHTML = '<tr><td colspan="6">Tidak ada data.</td></tr>';
+    }
+    </script>
+</html>

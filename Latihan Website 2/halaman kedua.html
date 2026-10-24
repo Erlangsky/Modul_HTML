@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form and Table Example</title>
+  <style>
+    /* Reset default margin and padding */
+    html, body {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .container {
+      padding: 20px;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background-color: #d9d7d7;
+      color: #302e2e;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .radio-group {
+    margin-bottom: 15px;
+    display: flex; /* Tambah flex supaya sejajar */
+    gap: 100px; /* Jarak antar pilihan */
+    align-items: baseline; /* Biar radio button sama text sejajar */
+        }
+
+    .radio-option {
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap; /* INI dia kuncinya! */
+    }
+
+    .radio-option input {
+      margin-right: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .radio-option label {
+    margin: 0;
+    font-weight: normal; /* Optional, biar lebih ringan */
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container position-relative">
+      <h1>TRAINING UNITED TRACTOR SCHOOL - BATCH VII</h1>
+      <a href="halaman awal.html">Beranda</a>
+      <a href="halaman2.html">Daftar Peserta</a>
+      <a href="P1_XXX_2.html">Daftar Materi</a>
+      <a href="P1_XXX_2.html">Kontak</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container position-relative">
+      <h1>Simple Form</h1>
+
+      <form id="myForm">
+        <div class="form-group">
+          <label for="nama">Nama Lengkap:</label>
+          <input type="text" id="nama" name="nama" required>
+        </div>
+
+        <div class="form-group">
+          <label>Jenis Kelamin:</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="laki" name="jenis_kelamin" value="Laki-laki" checked>
+              <label for="laki">Laki-laki</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
+              <label for="perempuan">Perempuan</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="kota_asal">Kota Asal:</label>
+          <input type="text" id="kota_asal" name="kota_asal" required>
+        </div>
+
+        <div class="form-group">
+          <label for="asal_sekolah">Asal Sekolah:</label>
+          <input type="text" id="asal_sekolah" name="asal_sekolah" required>
+        </div>
+
+        <div class="form-group">
+          <label for="jurusan">Jurusan:</label>
+          <select id="jurusan" name="jurusan" required>
+            <option value="">Pilih Jurusan</option>
+            <option value="Teknik Komputer">Teknik Komputer</option>
+            <option value="Akutansi">Akutansi</option>
+            <option value="IPA">IPA</option>
+            <option value="IPS">IPS</option>
+            <option value="Teknik Mesin">Teknik Mesin</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <input type="hidden" id="editIndex" value="-1">
+
+        <button type="submit" class="btn" id="submitBtn">Simpan</button>
+        <button class ="btn" id="ok-button" onclick="redirectToHalamanKetiga()" >Lihat Data</button>
+        <button id="toggleDataBtn">Show Submitted Data</button>
+      </form>
+
+      <h2>Submitted Data</h2>
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Kelamin</th>
+            <th>Kota Asal</th>
+            <th>Asal Sekolah</th>
+            <th>Jurusan</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <div class="footer-contact pt-3">
+          <p>Hak Cipta 2024 United Tractor</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    
+    function redirectToHalamanKetiga() {
+            window.location.href = 'halaman ketiga.html'; 
+        }
+        const toggleDataBtn = document.getElementById('toggleDataBtn');
+    const dataTable = document.getElementById('dataTable');
+
+    toggleDataBtn.addEventListener('click', function () {
+        if (dataTable.style.display === 'none' || dataTable.style.display === '') {
+            dataTable.style.display = 'table';
+
+            toggleDataBtn.textContent = 'Hide Submitted Data';
+        } else {
+            dataTable.style.display = 'none';
+            toggleDataBtn.textContent = 'Show Submitted Data';
+        }
+    });
+
+    // Initially hide the table
+    dataTable.style.display = 'none';
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById('nama').value;
+      const jenis_kelamin = document.querySelector('input[name="jenis_kelamin"]:checked').value;
+      const kota_asal = document.getElementById('kota_asal').value;
+      const asal_sekolah = document.getElementById('asal_sekolah').value;
+      const jurusan = document.getElementById('jurusan').value;
+      const email = document.getElementById('email').value;
+
+      console.log('Form Submitted!');
+      console.log('Nama:', nama);
+      console.log('Jenis Kelamin:', jenis_kelamin);
+      console.log('Kota Asal:', kota_asal);
+      console.log('Asal Sekolah:', asal_sekolah);
+      console.log('Jurusan:', jurusan);
+      console.log('Email:', email);
+
+      const tableBody = document.querySelector('#dataTable tbody');
+      const newRow = tableBody.insertRow();
+      newRow.insertCell(0).textContent = tableBody.rows.length + 1;
+      newRow.insertCell(1).textContent = nama;
+      newRow.insertCell(2).textContent = jenis_kelamin;
+      newRow.insertCell(3).textContent = kota_asal;
+      newRow.insertCell(4).textContent = asal_sekolah;
+      newRow.insertCell(5).textContent = jurusan;
+      newRow.insertCell(6).textContent = email;
+
+      document.getElementById('myForm').reset();
+    });
+  </script>
+
+</body>
+</html>
